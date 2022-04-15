@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Mortgage calculator</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="add-bank-page-wrapper">
+            <div class="add-bank-page">
+                <div class="add-bank-page__close"></div>
+                <h2>
+                    Create Bank Note
+                </h2>
+                <div class="add-bang-page__body">
+                    <div class="bank-option">
+                        <select id="banks" name="banks">
+                            <option value="bank-1">Bank 1</option>
+                            <option value="bank-2">Bank 2</option>
+                            <option value="bank-3">Bank 3</option>
+                            <option value="bank-4">Bank 4</option>
+                          </select>
+                    </div>
+                    <div class="bank_max-loan">
+                        <p>Maximum<br/>loan</p>
+                        <p><span id="max-loan-default">500000</span> $</p>
+                    </div>
+                    <div class="bank_min-down-payment">
+                        <p>Minimum down<br/>payment</p>
+                        <p><span id="min-down-payment">20000</span> $</p>
+                    </div>
+                    <div class="bank_interest-rate">
+                        <p>Interest<br/>rate</p>
+                        <p><span id="interest-rate">10</span> %</p>
+                    </div>
+                    <div class="bank_loan-term">
+                        <p>Maximum<br/>Loan term</p>
+                        <p><span id="max-loan-term">60</span> months</p>
+                    </div>
+                </div>
+                <h2>
+                    Chose your options
+                </h2>
+                <div class="add-bang-page__body second-bar">
+                    <div class="bank_max-loan">
+                        <p>Initial<br/>loan</p>
+                        <input id="clientLoan" type="number">
+                    </div>
+                    <div class="bank_min-down-payment">
+                        <p>Down<br/>Payment</p>
+                        <input id="client-down-payment" type="number">
+                    </div>
+                    <div class="bank_interest-rate">
+                        <p>Interest<br/>rate</p>
+                        <p><span class="client-interest-rate">10</span> %</p>
+                    </div>
+                    <div class="bank_loan-term">
+                        <p>Loan<br/>term</p>
+                        <input id="client-loan-rate" type="number">
+                    </div>
+                </div>
+                <button class="btn-create-bank">Create</button>
+            </div>
+        </div>
+        <div class="main_wrapper">
+            <h2>
+                Banks management page
+            </h2>
+            <div class="banking">
+                <div class="banking_list">
+                    <div class="banking_list_btns">
+                        <div class="btn-add_bank calc"><span>Mortgage calculator</span></div>
+                    <div class="btn-add_bank add"><span>Add Bank</span></div>
+                    </div>
+
+                    <p class="banking_list__title">
+                        Bank list
+                    </p>
+                    <div class="banking_list__items"></div>
+
+                </div>
+                <div class="banking_content">
+                    <h2>Your Bank Is <span class="mainBank"></span></h2>
+                    <p>Initial loan was - <span class="mainInitLoan"></span>$</p>
+                    <p>Down Payment was - <span class="mainDownPaym"></span>$</p>
+                    <p>Interest rate is - <span class="mainInterestRate"></span>%</p>
+                </div>
+            </div>
+        </div>
+        <div class="mortgage-calc__wrapper">
+            <div class="mortgage-calc">
+                <div class="mortgage-calc__close"></div>
+                <div class="mortgage-calc_title">
+                    <h2>
+                        Mortgage calculator
+                    </h2>
+                </div>
+                <div class="mortgage-calc_body">
+                    <div class="mortgage-calc_body__loan">
+                        <p class="loan_text">
+                            Initial loan
+                        </p>
+                        <input class="loan-input" type="number">
+                    </div>
+                    <div class="mortgage-calc_body__years">
+                        <input class="year-input" type="range" min="1" max="72">
+                        <p class="year-input_text">
+                            <span class="year-input-val">out</span> months
+                        </p>
+                    </div>
+                    <div class="mortgage-calc_body__interest-rate">
+                        <input class="interest-rate-input" type="range" min="1" max="25">
+                        <p class="interest-rate">
+                            <span class="interest-rate-value">1</span> %
+                        </p>
+                    </div>
+                    <div class="mortgage-calc_body__monthly-payments">
+                        <p class="monthly-payments__text">
+                            monthly payments $ <span id="month-payment">0</span>
+                        </p>
+                    </div>
+                    <div class="mortgage-calc_body__total-payments">
+                        <p class="total-payments__text">
+                            total payments $ <span id="total-payment">0</span>
+                        </p>
+                    </div>
+                    <div class="mortgage-calc_body__interest-paid">
+                        <p class="interest-paid__text">
+                            interest paid $ <span id="interest-paid">0</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./src/index.js"></script>
+</body>
+</html>

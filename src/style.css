@@ -1,0 +1,281 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+p,
+h2 {
+    text-align: center;
+}
+
+body {
+    background-color: aliceblue;
+    max-width: 1280px;
+    margin: 20px auto;
+}
+
+input {
+    height: 25px;
+}
+
+.banking {
+    margin: 20px auto;
+    padding: 30px;
+    display: flex;
+    border: solid 1px brown;
+    width: 900px;
+}
+
+.banking_list {
+    border: solid 1px brown;
+    padding: 0 20px 20px;
+    min-height: 400px;
+    width: 50%;
+    margin-right: 5px;
+}
+
+.banking_list_btns {
+    display: flex;
+}
+
+.btn-add_bank, .calc {
+    text-align: center;
+    margin: 15px 5px 5px;
+    padding: 15px;
+    height: 55px;
+    border: solid 1px brown;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.banking_list__title {
+    border-bottom: 1px solid gray;
+}
+
+.banking_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid 1px brown;
+    min-height: 400px;
+    width: 50%;
+}
+
+.banking_list-item {
+    min-height: 80px;
+    margin-bottom: 5px;
+    border: solid 1px brown;
+    position: relative;
+    cursor: pointer;
+}
+
+.active {
+    background-color: antiquewhite;
+}
+
+.list-item__btns {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-right: 10px;
+    right: 5px;
+    top: 5px;
+}
+
+.banking_list__items {
+    /* height: 100%; */
+    max-height: 500px;
+    width: 100%;
+    overflow:auto;
+}
+
+.list-item_delete,
+.list-item_edit {
+    padding: 5px;
+    margin: 5px 0;
+    height: 20px;
+    width: 20px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.list-item_delete {
+    background-image: url('https://th.bing.com/th/id/OIP.TG3QGNq75mPOFYVeU5nUpgAAAA?pid=ImgDet&rs=1');
+
+}
+
+.banking__bank-name {
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.banking_list-item__body {
+    max-width: 80%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+}
+
+.add-bank-page-wrapper {
+    transition: all ease .5s;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.active {
+    z-index: 2;
+    opacity: 1;
+}
+
+.add-bank-page {
+    margin: 0 auto;
+    max-width: 600px;
+    height: max-content;
+    padding: 30px;
+    border: solid 1px brown;
+    position: relative;
+    background-color: aliceblue;
+}
+
+.add-bank-page__active {
+    border: solid 5px brown;
+}
+
+.mortgage-calc__wrapper {
+    transition: all ease .5s;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.calc-active {
+    z-index: 2;
+    opacity: 1;
+}
+
+
+.add-bank-page__close,
+.mortgage-calc__close {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    right: 35px;
+    top: 20px;
+    background-image: url('https://th.bing.com/th/id/R.f66e7cabda8de13a47674a1e1475f3d4?rik=uv08LjIUrihr1Q&riu=http%3a%2f%2fwww.777icons.com%2flibs%2fvista-toolbar%2fclose-icon.gif&ehk=fEUu8duy6%2bFAb6QoQGI3vnXOx2nASLs%2bqyPGvrsqz0w%3d&risl=&pid=ImgRaw&r=0');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.add-bank-page h2 {
+    margin-bottom: 20px;
+}
+
+.add-bang-page__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+}
+.add-bang-page__body p, input{
+    margin-top: 0;
+    width: 100%;
+}
+
+.second-bar {
+    border-bottom: none;
+}
+
+.second-bar
+.bank_max-loan,
+.bank_min-down-payment,
+.bank_interest-rate,
+.bank_loan-term {
+    padding: 0 10px;
+}
+
+.main_wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-create-bank {
+    margin-top: 10px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.mortgage-calc {
+    background-color: aliceblue;
+    margin: 0 auto;
+    width: 600px;
+    padding: 30px;
+    border: solid 1px brown;
+    position: relative;
+}
+
+.loan-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.loan_text {
+    margin-bottom: 2px;
+}
+
+.mortgage-calc_body__years, .mortgage-calc_body__interest-rate {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.year-input, .interest-rate-input{
+    width: 50%;
+}
+
+.year-input_text, .interest-rate {
+    width: 45%;
+    border: solid 1px;
+    text-align: center;
+    height: 25px;
+}
+
+.monthly-payments__text,
+.total-payments__text,
+.interest-paid__text{
+    border: solid 1px;
+    height: 25px;
+}
+
