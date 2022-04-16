@@ -1,4 +1,5 @@
 const banks = document.getElementById('banks');
+const banksCalc = document.getElementById('banks-mortage');
 const maxLoanDefault = document.getElementById('max-loan-default');
 const minDownPayDefault = document.getElementById('min-down-payment');
 const interestRateDefault = document.getElementById('interest-rate');
@@ -29,6 +30,8 @@ const mainDownPaym = document.querySelector('.mainDownPaym');
 const mainInterestRate = document.querySelector('.mainInterestRate');
 
 // data
+
+interestRateInputInput.disabled = true;
 
 const bankConditions = [
     {
@@ -182,9 +185,9 @@ function calcOutText (result) {
 }
 
 function calculate (sum, rate, month, downPaym = 0) {
-    let b = rate / 12 / 100;
-    let c = Math.pow(b + 1, month);
-    let d = c - 1;
+    const b = rate / 12 / 100;
+    const c = Math.pow(b + 1, month);
+    const d = c - 1;
     const result = ((sum - downPaym) * b * c) / d;
 
     calcOutText (result);
@@ -214,17 +217,18 @@ btnAddBank.onclick = () => {
 }
 
 btnCalc.onclick = () => {
+
     document.querySelector('.mortgage-calc__wrapper').classList.add('calc-active')
 }
 
-yearInput.addEventListener('mousemove', (e) => {
-    yearInputText.innerText = e.target.value;
-    monthRange = e.target.value;
+// yearInput.addEventListener('mousemove', (e) => {
+//     yearInputText.innerText = e.target.value;
+//     monthRange = e.target.value;
 
-    calculate(sumRange, interestRateRange, monthRange);
-})
+//     calculate(sumRange, interestRateRange, monthRange);
+// })
 
-interestRateInputInput.addEventListener('mousemove', (e) => {
+interestRateInputInput.addEventListener('click', (e) => {
     interestRateValue.innerText = e.target.value;
     interestRateRange = e.target.value;
 
@@ -238,10 +242,34 @@ calcLoanInp.addEventListener('change', (e) => {
 function epmtyData () {
     dataUserBank.length == 0
     ? document.querySelector('.banking_list__items').innerHTML = `<h2 style="margin-bottom:0">Bank List is empty</h2><br/> <h3 style="margin:0;text-align:center">Press add bank</h3>`
-    : null
+    : null;
 }
 
 epmtyData();
+
+yearInput.addEventListener('mousemove', (e) => {
+    yearInputText.innerText = e.target.value;
+    monthRange = e.target.value;
+    // console.log(e.target.value)
+
+
+    calculate(sumRange, interestRateRange, monthRange);
+})
+
+banksCalc.addEventListener('click', (e) => {
+    calcLoanInp.value = bankConditions[banksCalc.selectedIndex].maxLoan;
+    interestRateRange = bankConditions[banksCalc.selectedIndex].intRate
+    interestRateValue.innerText = bankConditions[banksCalc.selectedIndex].intRate;
+    yearInput.max = bankConditions[banksCalc.selectedIndex].period;
+    sumRange = bankConditions[banksCalc.selectedIndex].maxLoan;
+    // yearInputText.innerText = bankConditions[banksCalc.selectedIndex].period
+
+    // monthRange = bankConditions[banks.selectedIndex].period
+ 
+
+    calculate(sumRange, interestRateRange, monthRange);
+})
+
 
 
 
