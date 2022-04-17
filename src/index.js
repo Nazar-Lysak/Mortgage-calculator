@@ -1,5 +1,6 @@
 const banks = document.getElementById('banks');
 const banksCalc = document.getElementById('banks-mortage');
+const maxLoanCalc = document.getElementById('max-loan-calc');
 const maxLoanDefault = document.getElementById('max-loan-default');
 const minDownPayDefault = document.getElementById('min-down-payment');
 const interestRateDefault = document.getElementById('interest-rate');
@@ -133,13 +134,13 @@ function clientRequest () {
 
     if(clientLoan.value > bankConditions[banks.selectedIndex].maxLoan) {
         alert('Initial loan should be less than Maximum loan');
-        return null
+        return null;
     } if(clientDownPayment.value < bankConditions[banks.selectedIndex].minDownPay) {
         alert('Down Payment should be bigger than Minimum down payment');
-        return null
+        return null;
     } if(clientLoanRate.value > bankConditions[banks.selectedIndex].period) {
         alert('Maximum Loan term term should be less than Loan term');
-        return null
+        return null;
     }
 
     let clientItemObj = {
@@ -170,12 +171,12 @@ function clearInputs() {
 function removeBank(i) {
    dataUserBank.splice(i, 1)
    renderBankList();
-   epmtyData ()
+   epmtyData();
 
 }
 
 function editBank(i) {
-    console.log(`edit id ${i + 1}`)
+    console.log(`edit id ${i + 1}`);
 }
 
 function calcOutText (result) {
@@ -189,9 +190,16 @@ function calculate (sum, rate, month, downPaym = 0) {
     const c = Math.pow(b + 1, month);
     const d = c - 1;
     const result = ((sum - downPaym) * b * c) / d;
-
     calcOutText (result);
     return result.toFixed(2);
+}
+
+function resetCalcValues () {
+    calcLoanInp.value = 0;      
+    interestRateValue.innerText = 0;
+    yearInput.max = 0;  
+    yearInput.value = 0; 
+    yearInputText.innerText = 0;
 }
 
 banks.onclick = () => {
@@ -201,15 +209,15 @@ banks.onclick = () => {
 btnCreateBank.onclick = () => {
 
     createBankItem();
-    document.querySelector('.add-bank-page-wrapper').classList.remove('active')
+    document.querySelector('.add-bank-page-wrapper').classList.remove('active');
 }
 
 closeAddBlank.onclick = () => {
-    document.querySelector('.add-bank-page-wrapper').classList.remove('active')
+    document.querySelector('.add-bank-page-wrapper').classList.remove('active');
 }
 
 closeCalc.onclick = () => {
-    document.querySelector('.mortgage-calc__wrapper').classList.remove('calc-active')
+    document.querySelector('.mortgage-calc__wrapper').classList.remove('calc-active');
 }
 
 btnAddBank.onclick = () => {
@@ -217,16 +225,23 @@ btnAddBank.onclick = () => {
 }
 
 btnCalc.onclick = () => {
+    document.querySelector('.mortgage-calc__wrapper').classList.add('calc-active');
+    resetCalcValues();
 
-    document.querySelector('.mortgage-calc__wrapper').classList.add('calc-active')
 }
 
-// yearInput.addEventListener('mousemove', (e) => {
-//     yearInputText.innerText = e.target.value;
-//     monthRange = e.target.value;
+yearInput.addEventListener('mousemove', (e) => {
+    yearInputText.innerText = e.target.value;
+    monthRange = e.target.value;
 
-//     calculate(sumRange, interestRateRange, monthRange);
-// })
+    calculate(sumRange, interestRateRange, monthRange);
+
+    if(calcLoanInp.value > bankConditions[banksCalc.selectedIndex].maxLoan) {
+        alert('Initial loan should be less than Maximum loan');
+        resetCalcValues ();
+        return null;
+    } 
+})
 
 interestRateInputInput.addEventListener('click', (e) => {
     interestRateValue.innerText = e.target.value;
@@ -247,28 +262,29 @@ function epmtyData () {
 
 epmtyData();
 
-yearInput.addEventListener('mousemove', (e) => {
+yearInput.addEventListener('click', (e) => {
     yearInputText.innerText = e.target.value;
     monthRange = e.target.value;
-    // console.log(e.target.value)
-
-
     calculate(sumRange, interestRateRange, monthRange);
 })
 
-banksCalc.addEventListener('click', (e) => {
-    calcLoanInp.value = bankConditions[banksCalc.selectedIndex].maxLoan;
-    interestRateRange = bankConditions[banksCalc.selectedIndex].intRate
+banksCalc.addEventListener('click', () => {
+
+    calcLoanInp.value = bankConditions[banksCalc.selectedIndex].maxLoan;      
     interestRateValue.innerText = bankConditions[banksCalc.selectedIndex].intRate;
-    yearInput.max = bankConditions[banksCalc.selectedIndex].period;
+    yearInput.max = bankConditions[banksCalc.selectedIndex].period;  
+    yearInput.value = bankConditions[banksCalc.selectedIndex].period; 
+    yearInputText.innerText = bankConditions[banksCalc.selectedIndex].period;
+    maxLoanCalc.innerText = bankConditions[banksCalc.selectedIndex].maxLoan;
+
+    monthRange = bankConditions[banksCalc.selectedIndex].period;
     sumRange = bankConditions[banksCalc.selectedIndex].maxLoan;
-    // yearInputText.innerText = bankConditions[banksCalc.selectedIndex].period
-
-    // monthRange = bankConditions[banks.selectedIndex].period
+    interestRateRange = bankConditions[banksCalc.selectedIndex].intRate;
  
-
-    calculate(sumRange, interestRateRange, monthRange);
+        calculate(calcLoanInp.value, bankConditions[banksCalc.selectedIndex].intRate, monthRange , 0);
 })
+
+
 
 
 
