@@ -7,7 +7,8 @@ img {
 }
 
 p,
-h2 {
+h2,
+h1 {
     text-align: center;
 }
 
@@ -17,7 +18,7 @@ body {
     background-image: url('https://img.hubbis.com/optimiser/img/news/cropped/d3ebfbb1232cb4d8f6e93dd6eab84e3a3be2a8c3.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 input {
@@ -316,5 +317,26 @@ input {
     filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
 }
 
+
+@media screen and (max-width: 992px) {
+
+    body {
+        padding: 20px;
+    }
+    .banking {
+      flex-direction: column;
+      width: 100%;
+      height: max-content;
+    }
+
+    .banking_list {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .banking_content {
+        width: 100%;
+    }
+  }
 
 
