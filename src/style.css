@@ -12,9 +12,12 @@ h2 {
 }
 
 body {
-    background-color: aliceblue;
     max-width: 1280px;
     margin: 20px auto;
+    background-image: url('https://img.hubbis.com/optimiser/img/news/cropped/d3ebfbb1232cb4d8f6e93dd6eab84e3a3be2a8c3.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 input {
@@ -25,12 +28,19 @@ input {
     margin: 20px auto;
     padding: 30px;
     display: flex;
-    border: solid 1px brown;
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
     width: 900px;
+    background-image: url('https://www.xmple.com/wallpaper/gradient-linear-red-grey-1920x1080-c2-f39b82-c0c0c0-a-180-f-14.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 .banking_list {
-    border: solid 1px brown;
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
     padding: 0 20px 20px;
     min-height: 400px;
     width: 50%;
@@ -46,12 +56,14 @@ input {
     margin: 15px 5px 5px;
     padding: 15px;
     height: 55px;
-    border: solid 1px brown;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50%;
+    background-image: url('https://css-tricks.com/wp-content/uploads/2017/09/linear-gradient.png');
+    background-position: center;
+    background-size: cover;
 }
 
 .banking_list__title {
@@ -62,7 +74,8 @@ input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: solid 1px brown;
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
     min-height: 400px;
     width: 50%;
 }
@@ -70,7 +83,7 @@ input {
 .banking_list-item {
     min-height: 80px;
     margin-bottom: 5px;
-    border: solid 1px brown;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     position: relative;
     cursor: pointer;
 }
@@ -89,7 +102,6 @@ input {
 }
 
 .banking_list__items {
-    /* height: 100%; */
     max-height: 500px;
     width: 100%;
     overflow:auto;
@@ -149,13 +161,13 @@ input {
     max-width: 600px;
     height: max-content;
     padding: 30px;
-    border: solid 1px brown;
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
     position: relative;
-    background-color: aliceblue;
-}
-
-.add-bank-page__active {
-    border: solid 5px brown;
+    background-image: url('https://www.xmple.com/wallpaper/gradient-linear-red-grey-1920x1080-c2-f39b82-c0c0c0-a-180-f-14.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .mortgage-calc__wrapper {
@@ -229,20 +241,37 @@ input {
     align-items: center;
 }
 
+.main_wrapper h1 {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em rosybrown, 0 0 0.2em rgb(165, 119, 119);
+}
+
+
+
 .btn-create-bank {
     margin-top: 10px;
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
     cursor: pointer;
+    background-image: url(https://css-tricks.com/wp-content/uploads/2017/09/linear-gradient.png);
+    background-position: center;
+    background-size: cover;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+
 }
 
 .mortgage-calc {
-    background-color: aliceblue;
+    background-image: url('https://www.xmple.com/wallpaper/gradient-linear-red-grey-1920x1080-c2-f39b82-c0c0c0-a-180-f-14.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0 auto;
     width: 600px;
     padding: 30px;
-    border: solid 1px brown;
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
     position: relative;
 }
 
@@ -282,5 +311,10 @@ input {
 #banks-mortage {
     margin-bottom: 15px;
 }
+
+input {
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+}
+
 
 
